@@ -31,26 +31,38 @@ tip = board.get_pin('d:'+ tipPin+':s') # pin PWM no 2
 #         print(jontAngle, tipAngle)
 base.write(float(90))
 
-while True: 
-    for i in range(68, 107):
+end = 300
+start = 0
+x = 0
+badIdea = []
+loop = False
+moveit = False
+while loop: 
+    for i in range(start, end+1):
         print(i)
-        jontAngle, tipAngle = twoDOF(50,i, 50,68)
+        jontAngle, tipAngle = twoDOF(x,i, 50,68)
         joint.write(jontAngle)
         tip.write(tipAngle)
         print(jontAngle, tipAngle) 
         sleep(0.02)
-    for i in range(106,69, -1):
+    for i in range(end,start-1, -1):
             print(i)
-            jontAngle, tipAngle = twoDOF(50,i, 50,68)
+            jontAngle, tipAngle = twoDOF(x,i, 50,68)
             joint.write(jontAngle)
             tip.write(tipAngle)
             print(jontAngle, tipAngle)
             sleep(0.02)      
-for i in range(68, 106):
+for i in range(start, end+1):
         print(i)
-        jontAngle, tipAngle = twoDOF(50,i, 50,68)
-        joint.write(jontAngle)
-        tip.write(tipAngle)
-        print(jontAngle, tipAngle) 
-        sleep(0.02)
-print ('good bye')
+        try:
+            jontAngle, tipAngle = twoDOF(x,i, 50,68)
+            if moveit: 
+                joint.write(jontAngle)
+                tip.write(tipAngle)
+            print(jontAngle, tipAngle) 
+            if(jontAngle < 0  or tipAngle < 0):
+                badIdea.append(i)
+            sleep(0.02)
+        except:
+            badIdea.append("math " + str(i))
+print ('bad idea', badIdea)
