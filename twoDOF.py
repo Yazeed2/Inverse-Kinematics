@@ -2,8 +2,8 @@ from math import sqrt, atan, acos, degrees
 
 def twoDOF(x, y, d1, d2): 
     '''
-    d1 is the dimention from first joint to second joint d2 is after the second joint
-    By taking x, y cordinates  and space between servos dimention we can calculate theta1 and theta2 
+    d1 is the dimension from first joint to second joint d2 is after the second joint
+    By taking x, y coordinates  and space between servos dimension we can calculate theta1 and theta2 
 
     '''
     r = sqrt(x**2 + y**2)

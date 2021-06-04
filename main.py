@@ -36,7 +36,7 @@ start = 0
 x = 0
 badIdea = []
 loop = False
-moveit = False
+moveIt = False
 while loop: 
     for i in range(start, end+1):
         print(i)
@@ -56,7 +56,7 @@ for i in range(start, end+1):
         print(i)
         try:
             jontAngle, tipAngle = twoDOF(x,i, 50,68)
-            if moveit: 
+            if moveIt: 
                 joint.write(jontAngle)
                 tip.write(tipAngle)
             print(jontAngle, tipAngle) 

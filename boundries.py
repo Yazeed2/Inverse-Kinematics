@@ -13,12 +13,12 @@ angles = []
 def possible(x,y): 
     try:
         jontAngle, tipAngle = twoDOF(x,y, 50,68)
-        # if(jontAngle < 0  or tipAngle < 0 or jontAngle > 180 or tipAngle > 180 ):
-        #     return False, 'nigative'
-        # else:
-        angles.append(jontAngle)
-        angles.append(tipAngle)
-        return True, None
+        if(jontAngle < 0  or tipAngle < 0 or jontAngle > 180 or tipAngle > 180 ):
+            return False, 'negative'
+        else:
+            angles.append(jontAngle)
+            angles.append(tipAngle)
+            return True, None
     except:
         return False, 'math'
 
