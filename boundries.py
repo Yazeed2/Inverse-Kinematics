@@ -1,6 +1,5 @@
 from twoDOF import twoDOF
-from matplotlib import pyplot
-
+import matplotlib.pyplot; print(matplotlib.backends.backend)
 end = 300
 x = 0
 badIdea = []
@@ -18,7 +17,7 @@ def possible(x,y):
         return False, 'math'
 
 for i in range(0, end+1):
-    print((i/end) * 100 ,'%')
+    # print((i/end) * 100 ,'%')
     row = []
     for j in range(-1* end, end+1):
         isPossible, reason = possible(i, j)
@@ -26,5 +25,5 @@ for i in range(0, end+1):
             xcord.append(i)
             ycord.append(j)
 
-        
-pyplot.scatter(xcord, ycord)
+print('done')
+matplotlib.pyplot.scatter(xcord, ycord)
