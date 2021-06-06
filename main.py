@@ -12,9 +12,9 @@ iter8.start()
 basePin = '7'
 jointPin = '6'
 tipPin = '5'
-base = board.get_pin('d:'+ basePin+':s') # pin PWM no 2 
-joint = board.get_pin('d:'+ jointPin+':s') # pin PWM no 2 
-tip = board.get_pin('d:'+ tipPin+':s') # pin PWM no 2 
+base = board.get_pin('d:'+ basePin+':s') 
+joint = board.get_pin('d:'+ jointPin+':s') 
+tip = board.get_pin('d:'+ tipPin+':s') 
 
 # while True:
 #     value = input('Position (0-255):')
@@ -33,9 +33,9 @@ base.write(float(90))
 
 end = 300
 start = 0
-x = 0
+x = 100
 badIdea = []
-loop = False
+loop = True
 moveIt = False
 while loop: 
     for i in range(start, end+1):
