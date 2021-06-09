@@ -16,19 +16,7 @@ base = board.get_pin('d:'+ basePin+':s')
 joint = board.get_pin('d:'+ jointPin+':s') 
 tip = board.get_pin('d:'+ tipPin+':s') 
 
-# while True:
-#     value = input('Position (0-255):')
-#     if value == 'exit': 
-#        break  
-#     else:
-#         base.write(float(value))
-#         joint.write(float(value))
-#         tip.write(float(value))
-#         sleep(1)
-#         jontAngle, tipAngle = twoDOF(50,68,50,68)
-#         joint.write(jontAngle)
-#         tip.write(tipAngle)
-#         print(jontAngle, tipAngle)
+
 base.write(float(90))
 
 end = 106
