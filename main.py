@@ -31,10 +31,11 @@ tip = board.get_pin('d:'+ tipPin+':s')
 #         print(jontAngle, tipAngle)
 base.write(float(90))
 
-end = 300
-start = 0
-x = 100
+end = 106
+start = 68
+x = 50
 badIdea = []
+goodIdea = []
 loop = True
 moveIt = False
 while loop: 
@@ -59,10 +60,14 @@ for i in range(start, end+1):
             if moveIt: 
                 joint.write(jontAngle)
                 tip.write(tipAngle)
+                sleep(0.02)
             print(jontAngle, tipAngle) 
+            
             if(jontAngle < 0  or tipAngle < 0):
                 badIdea.append(i)
-            sleep(0.02)
+            else:
+                goodIdea.append(i)
         except:
-            badIdea.append("math " + str(i))
-print ('bad idea', badIdea)
+            badIdea.append(i)
+print ('good idea', goodIdea)
+print('range ', min(goodIdea), 'to', max(goodIdea))
