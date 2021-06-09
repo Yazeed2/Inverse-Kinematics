@@ -24,7 +24,7 @@ start = 68
 x = 50
 badIdea = []
 goodIdea = []
-loop = True
+loop = False
 moveIt = False
 while loop: 
     for i in range(start, end+1):
@@ -40,22 +40,25 @@ while loop:
             joint.write(jontAngle)
             tip.write(tipAngle)
             print(jontAngle, tipAngle)
-            sleep(0.02)      
-for i in range(start, end+1):
-        print(i)
-        try:
-            jontAngle, tipAngle = twoDOF(x,i, 50,68)
-            if moveIt: 
-                joint.write(jontAngle)
-                tip.write(tipAngle)
-                sleep(0.02)
-            print(jontAngle, tipAngle) 
+            sleep(0.02)    
+# if(test){
+
+# }    
+# for i in range(start, end+1):
+#         print(i)
+#         try:
+#             jontAngle, tipAngle = twoDOF(x,i, 50,68)
+#             if moveIt: 
+#                 joint.write(jontAngle)
+#                 tip.write(tipAngle)
+#                 sleep(0.02)
+#             print(jontAngle, tipAngle) 
             
-            if(jontAngle < 0  or tipAngle < 0):
-                badIdea.append(i)
-            else:
-                goodIdea.append(i)
-        except:
-            badIdea.append(i)
-print ('good idea', goodIdea)
-print('range ', min(goodIdea), 'to', max(goodIdea))
+#             if(jontAngle < 0  or tipAngle < 0):
+#                 badIdea.append(i)
+#             else:
+#                 goodIdea.append(i)
+#         except:
+#             badIdea.append(i)
+# print ('good idea', goodIdea)
+# print('range ', min(goodIdea), 'to', max(goodIdea))
